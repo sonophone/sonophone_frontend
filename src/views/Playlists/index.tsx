@@ -1,5 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react'
 
 import { FeedProps } from '../../components/Feed'
 import Footer from '../../components/Footer'
