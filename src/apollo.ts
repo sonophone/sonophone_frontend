@@ -4,11 +4,11 @@ import {
   HttpLink,
   InMemoryCache
 } from '@apollo/client'
-import result from './generated/types'
 import Cookies, { CookieAttributes } from 'js-cookie'
 import jwtDecode from 'jwt-decode'
 
 import { API_URL, ERROR_MESSAGE } from './constants'
+import result from './generated/types'
 
 export const COOKIE_CONFIG: CookieAttributes = {
   sameSite: 'None',

@@ -127,21 +127,10 @@ const CollectModule: FC<Props> = ({ count, setCount, post }) => {
     }
   )
 
-  const { data: balanceData, isLoading: balanceLoading } = useBalance({
+  const { isLoading: balanceLoading } = useBalance({
     addressOrName: currentUser?.ownedBy,
     token: collectModule?.amount?.asset?.address
   })
-  let hasAmount = false
-
-  if (
-    balanceData &&
-    parseFloat(balanceData?.formatted) <
-      parseFloat(collectModule?.amount?.value)
-  ) {
-    hasAmount = false
-  } else {
-    hasAmount = true
-  }
 
   const [broadcast, { data: broadcastData, loading: broadcastLoading }] =
     useMutation(BroadcastMutation, {
