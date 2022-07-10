@@ -1,0 +1,17 @@
+{
+  "arrowParens": "always",
+  "semi": false,
+  "useTabs": false,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "importOrder": [
+    "^(react/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "^components/(.*)$",
+    "^utils/(.*)$",
+    "^assets/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

@@ -1,0 +1,27 @@
+import React, { FC } from 'react'
+
+import { LensterPost } from '../../../generated/lenstertypes'
+import Collect from './Collect'
+import Comment from './Comment'
+import PostMenu from './Menu'
+import Mirror from './Mirror'
+
+interface Props {
+  post: LensterPost
+}
+
+const Actions: FC<Props> = ({ post }) => {
+  const postType = post?.metadata?.attributes[0]?.value
+
+  return postType !== 'community' ? (
+    <div className="flex gap-8 items-center pt-3 -ml-2 text-gray-500">
+      <Comment post={post} />
+      <Mirror post={post} />
+      {post?.collectModule?.__typename !== 'RevertCollectModuleSettings' &&
+        postType !== 'crowdfund' && <Collect post={post} />}
+      <PostMenu post={post} />
+    </div>
+  ) : null
+}
+
+export default Actions
