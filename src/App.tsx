@@ -9,8 +9,6 @@ import { publicProvider } from 'wagmi/providers/public'
 
 import './App.css'
 import client from './apollo'
-import ViewPlaylist from './components/Playlist/ViewPlaylist'
-import ViewPost from './components/Post/ViewPost'
 import SiteLayout from './components/SiteLayout'
 import { APP_NAME, IS_PRODUCTION } from './constants'
 import AppProvider from './contexts/App'
@@ -20,6 +18,8 @@ import CreatePlaylist from './views/Create/Playlist'
 import Explore from './views/Explore'
 import Home from './views/Home'
 import Playlists from './views/Playlists'
+import ViewPlaylist from './views/Playlists/ViewPlaylist'
+import ViewPost from './views/Posts/index.ts'
 
 const { chains, provider } = configureChains(
   [IS_PRODUCTION ? chain.polygon : chain.polygonMumbai],

@@ -13,7 +13,7 @@ import usePlaylist from '../../../../hooks/usePlaylist'
 import usePlaylists from '../../../../hooks/usePlaylists'
 import humanize from '../../../../lib/humanize'
 import { Button } from '../../../UI/Button'
-import { Card } from '../../../UI/Card'
+import { Card, CardHeader } from '../../../UI/Card'
 import { Modal } from '../../../UI/Modal'
 import { Tooltip } from '../../../UI/Tooltip'
 
@@ -27,17 +27,17 @@ const AddToPlaylist: React.FC<Props> = ({ post }) => {
   const { playlists } = usePlaylists()
   const {
     isUploading,
-    isTypedDataLoading,
     isSigning,
-    isPosting,
+    isTypedDataLoading,
     isBroadcasting,
+    isPosting,
     addItem
   } = usePlaylist(selected)
 
   return (
     <motion.button
       whileTap={{ scale: 0.9 }}
-      onClick={() => setShowAddToPlaylistModal(true)}
+      onClick={() => !showAddToPlaylistModal && setShowAddToPlaylistModal(true)}
       aria-label="Add to a playlist"
     >
       <div className="p-1.5 rounded-full hover:bg-blue-300 hover:bg-opacity-20">
@@ -64,17 +64,22 @@ const AddToPlaylist: React.FC<Props> = ({ post }) => {
       >
         <div className="p-4">
           <Card className="my-4">
-            {playlists.map((playlist) => (
+            <CardHeader>
+              <b>Select the playlist in the list</b>:
+            </CardHeader>
+            {playlists.map((playlist, i) => (
               <>
+                {i !== 0 && (
+                  <div key={playlist.id + 'divider'} className="divider" />
+                )}
                 <div
                   key={playlist.id}
-                  className="flex flex-row justify-between p-2"
+                  className="flex flex-row justify-between m-2 p-2 rounded hover:bg-gray-200"
                   onClick={() => setSelected(playlist)}
                 >
                   <span>{playlist?.metadata?.name}</span>
                   {selected === playlist && <CheckIcon className="w-5 h-5" />}
                 </div>
-                <div key={playlist.id + 'divider'} className="divider" />
               </>
             ))}
           </Card>

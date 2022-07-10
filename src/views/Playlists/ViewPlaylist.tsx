@@ -2,19 +2,23 @@ import { useQuery } from '@apollo/client'
 import React from 'react'
 import { useMatch } from 'react-router-dom'
 
+import Custom404 from '../404'
+import Footer from '../../components/Footer'
+import {
+  GridItemEight,
+  GridItemFour,
+  GridLayout
+} from '../../components/GridLayout'
+import IPFSHash from '../../components/IPFSHash'
+import SinglePlaylist from '../../components/Playlist/SinglePlaylist'
+import SEO from '../../components/SEO'
+import PostsShimmer from '../../components/Shimmers/PostsShimmer'
+import { Card, CardBody } from '../../components/UI/Card'
+import UserProfile from '../../components/UserProfile'
 import { APP_NAME, ZERO_ADDRESS } from '../../constants'
 import { LensterPost } from '../../generated/lenstertypes'
 import { GetPublicationQuery } from '../../graphql/queries/GetPublicationQuery'
 import useApp from '../../hooks/useApp'
-import Custom404 from '../../views/404'
-import Footer from '../Footer'
-import { GridItemEight, GridItemFour, GridLayout } from '../GridLayout'
-import IPFSHash from '../IPFSHash'
-import SEO from '../SEO'
-import PostsShimmer from '../Shimmers/PostsShimmer'
-import { Card, CardBody } from '../UI/Card'
-import UserProfile from '../UserProfile'
-import SinglePlaylist from './SinglePlaylist'
 
 const ViewPlaylist: React.FC = () => {
   const {

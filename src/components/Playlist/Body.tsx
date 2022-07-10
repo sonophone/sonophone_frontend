@@ -46,9 +46,13 @@ const Body: FC<Props> = ({ post, expanded }) => {
       )}
       <Button
         icon={<PlayIcon className="w-5 h-5" />}
-        title="Play this playlist"
         onClick={() => playList(tracks)}
-      />
+        disabled={!tracks || tracks.length === 0}
+      >
+        {!tracks || tracks.length === 0
+          ? 'Empty playlist'
+          : 'Play this playlist'}
+      </Button>
     </div>
   )
 }
